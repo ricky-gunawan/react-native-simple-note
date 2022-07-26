@@ -15,12 +15,12 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 // data();
 
 export default function NoteList() {
-  const notes = useSelector((store) => store.notes.notes);
+  const { notes, filteredNotes } = useSelector((store) => store.notes);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getNotesAsync());
   }, [dispatch]);
 
-  return <FlatList data={notes} numColumns={2} renderItem={({ item }) => <Note {...item} />} keyExtractor={(item) => item.localId} />;
+  return <FlatList data={filteredNotes.length ? filteredNotes : notes} numColumns={2} renderItem={({ item }) => <Note {...item} />} keyExtractor={(item) => item.localId} />;
 }

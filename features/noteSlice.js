@@ -33,6 +33,7 @@ export const deleteNoteAsync = (localId) => async (dispatch) => {
 
 const initialState = {
   notes: [],
+  filteredNotes: [],
 };
 
 const noteSlice = createSlice({
@@ -42,9 +43,16 @@ const noteSlice = createSlice({
     setNotes: (state, action) => {
       state.notes = action.payload;
     },
+    setFilteredNotes: (state, action) => {
+      if (action.payload) {
+        state.filteredNotes = state.notes.filter((note) => note.title.toLowerCase().includes(action.payload.toLowerCase()) || note.content.toLowerCase().includes(action.payload.toLowerCase()));
+      } else {
+        state.filteredNotes = state.notes;
+      }
+    },
   },
 });
 
 export default noteSlice.reducer;
 
-export const { setNotes } = noteSlice.actions;
+export const { setNotes, setFilteredNotes } = noteSlice.actions;
