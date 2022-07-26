@@ -22,5 +22,5 @@ export default function NoteList() {
     dispatch(getNotesAsync());
   }, [dispatch]);
 
-  return <FlatList data={filteredNotes.length ? filteredNotes : notes} numColumns={2} renderItem={({ item }) => <Note {...item} />} keyExtractor={(item) => item.localId} />;
+  return <FlatList data={filteredNotes ? filteredNotes : notes} numColumns={2} renderItem={({ item }) => <Note {...item} />} keyExtractor={(item) => item.localId} />;
 }

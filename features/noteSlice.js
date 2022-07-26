@@ -33,7 +33,6 @@ export const deleteNoteAsync = (localId) => async (dispatch) => {
 
 const initialState = {
   notes: [],
-  filteredNotes: [],
 };
 
 const noteSlice = createSlice({
