@@ -15,8 +15,8 @@ export default function DeleteNoteButton({ localId }) {
   };
 
   return (
-    <TouchableOpacity onPress={handleDelete} activeOpacity={0.5} style={tailwind`absolute right-6 bottom-6 w-12 h-12 rounded-full justify-center items-center bg-red-500/40`}>
-      <AntDesign style={tailwind`text-black/80`} name="delete" size={24} color="black" />
+    <TouchableOpacity onPress={handleDelete} activeOpacity={0.5} style={tailwind`absolute right-6 bottom-6 w-12 h-12 rounded-full border-2 border-slate-50/80 justify-center items-center bg-red-700/80`}>
+      <AntDesign style={tailwind`text-white/80`} name="delete" size={24} color="white" />
     </TouchableOpacity>
   );
 }

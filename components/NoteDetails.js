@@ -4,8 +4,8 @@ import tailwind from "twrnc";
 export default function NoteDetails({ title, content }) {
   return (
     <View style={tailwind`self-stretch`}>
-      <View style={tailwind`px-1 h-6 border-b bg-yellow-500`}>
-        <Text numberOfLines={1} style={tailwind`text-blue-500 text-center my-auto`}>
+      <View style={tailwind`border-b-2 border-yellow-500`}>
+        <Text numberOfLines={1} style={tailwind`text-blue-500 px-4 my-1 text-lg font-semibold`}>
           {title}
         </Text>
       </View>

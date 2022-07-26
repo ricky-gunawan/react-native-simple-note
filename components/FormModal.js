@@ -18,19 +18,26 @@ export default function FormModal({ setModalVisible }) {
   };
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={tailwind`flex-1 justify-center bg-white/60 items-center`}>
-        <View style={tailwind`bg-slate-200 p-4 w-[70] h-[76] rounded-md`}>
+      <View style={tailwind`flex-1 justify-center bg-white/40 items-center`}>
+        <View style={tailwind`bg-slate-300 p-4 w-[70] h-[76] rounded-md`}>
           <Formik initialValues={{ title: "", content: "" }} onSubmit={(values, { resetForm }) => handleFormSubmit(values, resetForm)}>
             {({ handleChange, handleBlur, handleSubmit, values }) => (
               <View style={tailwind`flex-1`}>
-                <TextInput style={tailwind`bg-white h-[10] rounded-md mb-2 px-2`} onChangeText={handleChange("title")} onBlur={handleBlur("title")} value={values.title} />
-                <TextInput style={{ ...tailwind`bg-white h-[46] rounded-md mb-2 p-2`, textAlignVertical: "top" }} multiline onChangeText={handleChange("content")} onBlur={handleBlur("content")} value={values.content} />
-                <Button onPress={handleSubmit} title="Submit" color={"red"} />
+                <TextInput style={tailwind`bg-white h-[10] rounded-md mb-2 px-2`} onChangeText={handleChange("title")} onBlur={handleBlur("title")} value={values.title} placeholder={"Title"} />
+                <TextInput
+                  style={{ ...tailwind`bg-white h-[46] rounded-md mb-2 p-2`, textAlignVertical: "top" }}
+                  multiline
+                  onChangeText={handleChange("content")}
+                  onBlur={handleBlur("content")}
+                  value={values.content}
+                  placeholder={"Note.."}
+                />
+                <Button onPress={handleSubmit} title="Save" color="#50cf0c" />
               </View>
             )}
           </Formik>
-          <TouchableOpacity onPress={() => setModalVisible(false)} style={{ ...tailwind`absolute right-0 top-0`, transform: [{ translateX: 8 }, { translateY: -8 }] }}>
-            <AntDesign name="closecircle" size={30} color="red" />
+          <TouchableOpacity onPress={() => setModalVisible(false)} style={{ ...tailwind`absolute right-0 top-0 border-2 border-slate-100 rounded-full`, transform: [{ translateX: 8 }, { translateY: -8 }] }}>
+            <AntDesign name="closecircle" size={30} color="#ef4444" />
           </TouchableOpacity>
         </View>
       </View>

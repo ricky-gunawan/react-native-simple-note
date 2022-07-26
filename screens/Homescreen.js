@@ -1,6 +1,5 @@
-import { Formik } from "formik";
 import { useState } from "react";
-import { View, Keyboard, TouchableWithoutFeedback, Modal, Text, TextInput, Button } from "react-native";
+import { View, Keyboard, TouchableWithoutFeedback, Modal } from "react-native";
 import tailwind from "twrnc";
 import AddNoteButton from "../components/AddNoteButton";
 import FormModal from "../components/FormModal";
@@ -11,8 +10,8 @@ export default function HomeScreen() {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <View style={tailwind`bg-yellow-300 flex-1 items-center justify-center p-4`}>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View style={tailwind`bg-yellow-300 flex-1 items-center justify-center px-4`}>
         <SearchField />
         <NoteList />
         <AddNoteButton setModalVisible={setModalVisible} />

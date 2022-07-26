@@ -12,7 +12,7 @@ export default function SearchField() {
 
   return (
     <View style={tailwind`self-stretch`}>
-      <TextInput onChangeText={handleChange} placeholder="Search" style={tailwind`bg-slate-100 mx-8 h-[10] rounded-md mb-2 px-2`} />
+      <TextInput onChangeText={handleChange} placeholder="Search" style={tailwind`bg-white ml-3 mr-20 h-[10] rounded-md mt-4 mb-2 px-2 shadow-sm`} />
     </View>
   );
 }
